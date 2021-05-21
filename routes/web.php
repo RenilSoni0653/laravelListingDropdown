@@ -24,6 +24,7 @@ Route::get('/home/{id}', 'HomeController@show')->name('home.show');
 Route::post('/allLists','HomeController@store')->name('allLists');
 Route::get('api/get-state-list', 'HomeController@getState')->name('stateList');
 Route::get('api/get-city-list', 'HomeController@getCity')->name('cityList');
+Route::get('api/getFiles', 'HomeController@getFiles')->name('getFiles');
 
 Route::post('/list/{id}/edit', 'HomeController@edit')->name('list.edit');
 Route::put('/list/{id}', 'HomeController@update')->name('list.update');

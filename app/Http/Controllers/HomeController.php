@@ -46,6 +46,12 @@ class HomeController extends Controller
         return response()->json($cities);
     }
 
+    public function getFiles(Request $request)
+    {
+        $Files = DB::table('product')->where("TextFile",$request->TextFile);
+        return response()->json($Files);
+    }
+
     public function show()
     {
         $product = Product::paginate(10);

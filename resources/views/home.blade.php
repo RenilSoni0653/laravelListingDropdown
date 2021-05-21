@@ -40,7 +40,13 @@
                             <td>{{ $data->country }}</td>
                             <td>{{ $data->state }}</td>
                             <td>{{ $data->city }}</td>
-                            <td><img src="/uploads/{{ $data->TextFile }}" width="50px" height="50px"></td>
+                            <td>
+                                @if($data->TextFile == NULL)
+                                    <img src="/img/No_image.svg.png" width="50px" height="50px">
+                                @else
+                                    <img src="/uploads/{{ $data->TextFile }}" width="50px" height="50px">
+                                @endif
+                            </td>
                             <td>
                                 <form method="POST" action="{{ url('list/'.$data->id.'/edit') }}">
                                 @csrf
