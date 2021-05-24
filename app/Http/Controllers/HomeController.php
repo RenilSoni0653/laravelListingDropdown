@@ -101,7 +101,7 @@ class HomeController extends Controller
         $city_key = $cityId[0];
         $cities = DB::table('cities')->select('state_id','name')->where('state_id','=',$city_key)->pluck('name');
         
-        return view('edit')->with(compact('list','countries','states','state_key','cities','city_key'));
+        return view('edit')->with(compact('list','countries','country_record','states','state_key','cities','city_key'));
     }
 
     public function update($id)

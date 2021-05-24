@@ -67,7 +67,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
+    <script type="text/javascript">
         $('#country-edit').change(function(){
             var countryID = $(this).val();
             if(countryID){
@@ -79,7 +79,7 @@
                         $("#state-edit").empty();
                         $("#state-edit").append('<option>Select State</option>');
                         $.each(res,function(key,value){
-                        $("#state-edit").append('<option value="'+key+'">'+value+'</option>');
+                            $("#state-edit").append('<option value="'+key+'">'+value+'</option>');
                     });
                     $('#city-edit').html('<option value=""></option>');
                     }else{
@@ -91,9 +91,9 @@
                 $("#state-edit").empty();
                 $("#city-edit").empty();
             }
-        
+        });
         $('#state-edit').on('change',function(){
-            var stateID = countryID;
+            var stateID = $(this).val();
             if(stateID){
                 $.ajax({
                     type:"GET",
@@ -114,11 +114,11 @@
                 $("#city-edit").empty();
             }
         });
-    });
     </script>
 
     <script>
         var uploadedDocumentMap = {}
+
         Dropzone.options.documentDropzone = {
             url: '{{ route('projects.storeMedia') }}',
             maxFilesize: 2, // MB
@@ -143,11 +143,13 @@
             init: function () {
                 var imgName = "<?php echo $list->TextFile ?>";
                 var myDropzone = this;
+                var mockFile = { name: imgName , size: 12345 };
                 
-                let mockFile = { name: imgName , size: 12345 };
-                myDropzone.options.addedfile.call(myDropzone, mockFile);
-                myDropzone.options.thumbnail.call(myDropzone, mockFile, '/uploads/'+imgName);
-
+                if(imgName == '') {}
+                else {
+                    myDropzone.options.addedfile.call(myDropzone, mockFile);
+                    myDropzone.options.thumbnail.call(myDropzone, mockFile, '/uploads/'+imgName);
+                }
                 @if(isset($project) && $project->document)
                     var files =
                     {!! json_encode($project->document) !!}

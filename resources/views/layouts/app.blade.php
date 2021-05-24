@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <style>
+        .dz-image img {
+            width: 130px;
+            height:130px;
+        }
+    </style>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,11 +35,9 @@
             selector:'textarea.description',
         });
     </script>
-
     <!-- End of tinymce -->
 
     <!-- Dropzone Script -->
-
     {{-- CSS assets in head section --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
 
@@ -87,8 +92,6 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Script for Cities,States and Countries -->
-
-    <script src=//www.codermen.com/js/jquery.js></script>
     <script type="text/javascript">
     $(document).ready(function() {
         $('#country').change(function(){
@@ -101,7 +104,7 @@
                     if(res){
                         $("#state").empty();
                         $("#state").append('<option>Select State</option>');
-                        $.each(res,function(key,value){
+                            $.each(res,function(key,value){
                         $("#state").append('<option value="'+key+'">'+value+'</option>');
                     });
                     }else{
