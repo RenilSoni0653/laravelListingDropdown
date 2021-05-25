@@ -9,17 +9,17 @@
         @method('PUT')
             <div class="form-group">
                 <label for="name">Enter Name: </label>
-                <input type="text" name="name" id="name" value="{{ $list->name }}" placeholder="Enter Your Name" class="form-control" style="width:350px">
+                <input type="text" name="name" id="name" value="{{ $list->name }}" placeholder="Enter Your Name" class="form-control" style="width:350px" required>
             </div>
 
             <div class="form-group">
                 <label for="description">Enter Description: </label>
-                <textarea class="description" name="description" id="description" style="width:350px" value="{{ $list->description }}">{{ $list->description }}</textarea>
+                <textarea class="description" name="description" id="description" style="width:350px" value="{{ $list->description }}" required>{{ $list->description }}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="country">Select Country:</label>
-                    <select id="country-edit" name="country" value="{{ $list->country }}" class="form-control" style="width:350px">
+                    <select id="country-edit" name="country" value="{{ $list->country }}" class="form-control" style="width:350px" required>
                     <option value="" selected disabled>{{ $list->country }}</option>
                         @foreach($countries as $key => $country)
                             <option value="{{$key}}"> {{$country}}</option>
@@ -29,7 +29,7 @@
 
             <div class="form-group">
                 <label for="state">Select State:</label>
-                <select name="state" id="state-edit" class="form-control" style="width:350px">
+                <select name="state" id="state-edit" class="form-control" style="width:350px" required>
                 <option value="" selected disabled>{{ $list->state }}</option>
                 @for($j = 0; $j < $states->count(); $j++)
                     <option value="{{$state_key}}"> {{$states[$j]}}</option>
@@ -39,7 +39,7 @@
          
             <div class="form-group">
                 <label for="city">Select City:</label>
-                <select name="city" id="city-edit" class="form-control" style="width:350px">
+                <select name="city" id="city-edit" class="form-control" style="width:350px" required>
                 <option value="" selected disabled>{{ $list->city }}</option>
                     @for($j = 0; $j < $cities->count(); $j++)
                         <option value="{{$city_key}}"> {{$cities[$j]}}</option>
@@ -51,7 +51,7 @@
                 @csrf
                 <div class="form-group" style="width:350px">
                     <label for="document">Upload Files: </label>
-                    <div class="needsclick dropzone" id="document-dropzone">
+                    <div class="needsclick dropzone" id="document-dropzone" required>
                     
                     </div>
                 </div>

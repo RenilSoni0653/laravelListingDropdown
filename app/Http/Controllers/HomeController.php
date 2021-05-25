@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Country;
 use App\Product;
 use App\ImageUpload;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Collection;
