@@ -32,3 +32,6 @@ Route::get('/productlist', 'CountryCityStateController@index')->name('productLis
 
 Route::post('projects/media', 'HomeController@storeMedia')->name('projects.storeMedia');
 Route::post('projects', 'HomeController@storeImage')->name('projects.store');
+
+Route::get('stripe', 'PaymentController@checkout')->name('stripform');
+Route::post('stripe', 'PaymentController@afterpayment')->name('checkout.credit-card');

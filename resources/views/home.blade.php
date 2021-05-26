@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@section('title','Home Page')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -29,6 +30,7 @@
                             <td>State</td>
                             <td>City</td>
                             <td>File</td>
+                            <td>Payment</td>
                             <td><a class="pl-2" href="/home">Add</a></td>
                         </tr>
 
@@ -46,6 +48,12 @@
                                 @else
                                     <img src="/uploads/{{ $data->TextFile }}" width="50px" height="50px">
                                 @endif
+                            </td>
+                            <td>
+                                <form method="GET" action="{{ url('/stripe/') }}">
+                                    @csrf
+                                    <button class="btn btn-primary">Pay</button>
+                                </form>
                             </td>
                             <td>
                                 <form method="POST" action="{{ url('list/'.$data->id.'/edit') }}">
