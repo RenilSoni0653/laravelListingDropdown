@@ -4,12 +4,12 @@
 @section('title','Payment Details')
     @php $stripe_key = 'pk_test_51Iuxp6SGCTPXtTRvn3lkvujdL88eClG8R5Bj96ElGMgJ3LnkdxpvHRNPqoMSlqMnyEAgnaJR68YQYyHLE0l9Q6nQ00FAgflSOy'; @endphp
     
-    <div class="container" style="margin-top:10%;margin-bottom:10%">
+    <div class="container" style="margin-top:10%;margin-bottom:10%;width:550px;border-radius:10px;">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="">
+                <!-- <div class="">
                     <p>You will be charged Rs 100</p>
-                </div>
+                </div> -->
 
                 <div class="card">
                     <form action="{{route('checkout.credit-card')}}"  method="post" id="payment-form">
@@ -30,7 +30,7 @@
                             </div>
 
                             <div class="card-footer">
-                                <button id="card-button" type="submit" data-secret="{{ $intent }}" > Pay </button>
+                                <button id="card-button" style="border-radius:5px;" type="submit" data-secret="{{ $intent }}" > Pay now</button>
                             </div>
                     </form>
                 </div>
@@ -55,7 +55,7 @@
             invalid: {
                 color: '#fa755a',
                 iconColor: '#fa755a'
-            }
+            },
         };
     
         const stripe = Stripe('{{ $stripe_key }}', { locale: 'en' }); // Create a Stripe client.
@@ -93,6 +93,7 @@
                     // Inform the user if there was an error.
                     var errorElement = document.getElementById('card-errors');
                     errorElement.textContent = result.error.message;
+                    return window.location = "/stripe/failedPayment";
                 } else {
                     console.log(result);
                     form.submit();

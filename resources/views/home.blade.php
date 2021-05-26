@@ -50,7 +50,7 @@
                                 @endif
                             </td>
                             <td>
-                                <form method="GET" action="{{ url('/stripe/') }}">
+                                <form method="post" action="{{ url('/stripe/form') }}">
                                     @csrf
                                     <button class="btn btn-primary">Pay</button>
                                 </form>

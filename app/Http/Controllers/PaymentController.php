@@ -31,5 +31,10 @@ class PaymentController extends Controller
     public function afterPayment()
     {
         echo 'Payment Has been Received';
+    }
+
+    public function failedPayment()
+    {
+        echo 'Payment Has been failed';
     }    
 }
