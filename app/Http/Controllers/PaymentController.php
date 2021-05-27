@@ -35,6 +35,6 @@ class PaymentController extends Controller
 
     public function failedPayment()
     {
-        echo 'Payment Has been failed';
+        echo 'Payment Has been Failed <br><a href="javascript:history.back()">try again</a>';
     }    
 }

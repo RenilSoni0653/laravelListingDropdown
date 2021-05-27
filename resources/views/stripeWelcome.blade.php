@@ -35,6 +35,10 @@
                     </form>
                 </div>
 
+                <div class="pr-0 text-right">
+                    <a href="{{ url('/home/'.auth()->user()->id) }}">back to home</a>
+                </div>
+                
             </div>
         </div>
     </div>
